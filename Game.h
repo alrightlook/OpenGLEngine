@@ -13,6 +13,7 @@ class Game
 	static Game* m_Instance;
 	GLFWwindow* m_mainWindow;
 	std::vector<GameState*> m_vecGameLoops;
+	int m_CurrentIndex;
 
 	public:
 	static Game* Instance();

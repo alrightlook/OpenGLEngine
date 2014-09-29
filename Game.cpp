@@ -1,8 +1,10 @@
 #include "Game.h"
+#include <iostream>
+using namespace std;
 
 Game* Game::m_Instance = 0;
 
-Game::Game()
+Game::Game(): m_CurrentIndex(0)
 {
 	if(!glfwInit()) {
 		glfwTerminate();
@@ -28,13 +30,16 @@ Game::~Game()
 void Game::addGameLoop(GameState* pGamestate)
 {
 	m_vecGameLoops.push_back(pGamestate);
+	m_CurrentIndex++;
 }
 
 void Game::Run()
 {
-	for (int i = 0; i < m_vecGameLoops.size(); i++)
-	{
-		m_vecGameLoops.at(i)->loop();
+	cout<<"Current Index:"<<m_CurrentIndex<<endl;
+	while(!glfwWindowShouldClose(glfwGetCurrentContext())) {
+		glfwSwapBuffers(glfwGetCurrentContext());
+		m_vecGameLoops.at(m_CurrentIndex - 1)->loop();
+		glfwPollEvents();
 	}
 }
 
