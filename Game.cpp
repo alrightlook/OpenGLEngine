@@ -23,6 +23,12 @@ Game::Game(): m_CurrentIndex(0)
 	
 }
 
+void Game::popGameLoop()
+{
+	m_CurrentIndex--;
+	m_vecGameLoops.pop_back();
+}
+
 Game::~Game()
 {
 }
@@ -35,7 +41,6 @@ void Game::addGameLoop(GameState* pGamestate)
 
 void Game::Run()
 {
-	cout<<"Current Index:"<<m_CurrentIndex<<endl;
 	while(!glfwWindowShouldClose(glfwGetCurrentContext())) {
 		glfwSwapBuffers(glfwGetCurrentContext());
 		m_vecGameLoops.at(m_CurrentIndex - 1)->loop();

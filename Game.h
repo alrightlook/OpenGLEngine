@@ -19,6 +19,7 @@ class Game
 	static Game* Instance();
 	void Run();
 	void addGameLoop(GameState* pGamestate);
+	void popGameLoop();
 	GLFWwindow* getMainWindow();
 };
 
