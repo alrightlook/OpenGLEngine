@@ -4,10 +4,14 @@ using namespace std;
 
 Game* Game::m_Instance = 0;
 
+void Game::Init()
+{
+}
+
 Game::Game(): m_CurrentIndex(0)
 {
 	if(!glfwInit()) {
-		glfwTerminate();
+ 		glfwTerminate();
 		return;
 	}
 

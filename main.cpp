@@ -5,6 +5,7 @@
 
 int main(int argc, char* argv[])
 {
+	Game::Instance()->Init();
 	StartGameState start;
 	StartGameState second;
 	Game::Instance()->addGameLoop(&start);

@@ -16,6 +16,7 @@ class Game
 	int m_CurrentIndex;
 
 	public:
+	void Init();
 	static Game* Instance();
 	void Run();
 	void addGameLoop(GameState* pGamestate);
